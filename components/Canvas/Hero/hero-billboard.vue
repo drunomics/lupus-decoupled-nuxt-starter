@@ -1,0 +1,109 @@
+<template>
+  <div
+    :class="[
+      'relative flex w-full overflow-hidden',
+      ...Object.values(classes),
+      overlapHeader ? '-mt-16' : '',
+    ]"
+  >
+    <div
+      v-if="backgroundImage?.src"
+      class="absolute inset-0"
+    >
+      <img
+        :src="backgroundImage.src"
+        :alt="backgroundImage.alt || ''"
+        :width="backgroundImage.width"
+        :height="backgroundImage.height"
+        :class="['size-full object-cover', imageClasses.imagePosition]"
+      >
+      <div
+        v-if="overlayOpacity !== '0%'"
+        :class="['absolute inset-0', imageClasses.overlay]"
+      />
+    </div>
+    <div :class="['relative py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3', contentPosition === 'center' ? 'text-center mx-auto items-center' : '']">
+      <slot />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+const props = withDefaults(defineProps<{
+  /**
+   * Hero height
+   * @example full
+   * @enumLabels {"full": "Full screen", "large": "Large", "ribbon": "Ribbon"}
+   */
+  height?: 'full' | 'large' | 'ribbon'
+  /**
+   * Content position
+   * @example center-start
+   * @enumLabels {"top-start": "Top left", "center-start": "Center left", "bottom-start": "Bottom left", "center": "Center"}
+   */
+  contentPosition?: 'top-start' | 'center-start' | 'bottom-start' | 'center'
+  /**
+   * Background image
+   * @example src=https://placehold.co/1920x1080 alt="Hero background" width=1920 height=1080
+   */
+  backgroundImage?: CanvasImage
+  /**
+   * Background image vertical position
+   * @example center
+   * @enumLabels {"top": "Top", "center": "Center", "bottom": "Bottom"}
+   */
+  imagePosition?: 'top' | 'center' | 'bottom'
+  /**
+   * Background overlay opacity
+   * @example 0%
+   * @enumLabels {"0%": "None", "20%": "Light", "40%": "Medium", "60%": "Dark", "75%": "Extra dark"}
+   */
+  overlayOpacity?: '0%' | '20%' | '40%' | '60%' | '75%'
+  /**
+   * Overlap the site header
+   */
+  overlapHeader?: boolean
+}>(), {
+  height: 'full',
+  contentPosition: 'center-start',
+  imagePosition: 'center',
+  overlayOpacity: '0%',
+  overlapHeader: false,
+})
+
+defineSlots<{
+  /**
+   * Hero content
+   */
+  default?(): unknown
+}>()
+
+const classes = computed(() => ({
+  height: ({
+    full: 'h-dvh',
+    large: 'min-h-[60vh]',
+    ribbon: 'min-h-48 md:min-h-64',
+  })[props.height] || '',
+  position: ({
+    'top-start': 'items-start justify-start',
+    'center-start': 'items-center justify-start',
+    'bottom-start': 'items-end justify-start',
+    'center': 'items-center justify-center',
+  })[props.contentPosition] || '',
+}))
+
+const imageClasses = computed(() => ({
+  imagePosition: ({
+    top: 'object-top',
+    center: 'object-center',
+    bottom: 'object-bottom',
+  })[props.imagePosition] || '',
+  overlay: ({
+    '0%': '',
+    '20%': 'bg-black/20',
+    '40%': 'bg-black/40',
+    '60%': 'bg-black/60',
+    '75%': 'bg-black/75',
+  })[props.overlayOpacity] || '',
+}))
+</script>

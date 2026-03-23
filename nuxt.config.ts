@@ -1,10 +1,41 @@
+import tailwindcss from '@tailwindcss/vite'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['nuxtjs-drupal-ce', "@nuxt/eslint"],
+  modules: ['nuxtjs-drupal-ce', 'nuxt-component-preview', "@nuxt/eslint"],
+
+  css: ['~/assets/css/theme.css'],
+
+  // Register Canvas components as global. Group subfolders (Layout/, Base/, etc.)
+  // are for organization only — pathPrefix: false means they don't affect component names.
+  // e.g. Canvas/Layout/layout-section.vue -> <layout-section>
+  components: [
+    { path: '~/components/Canvas', global: true, pathPrefix: false, prefix: '' },
+    '~/components',
+  ],
 
   drupalCe: {
     drupalBaseUrl: process.env.NUXT_PUBLIC_DRUPAL_CE_DRUPAL_BASE_URL || 'https://lupus-decoupled.ddev.site',
     exposeAPIRouteRules: true,
+  },
+
+  componentPreview: {
+    componentIndex: {
+      category: 'Base',
+      overrides: {
+        // Layout components
+        'LayoutSection': { category: 'Layout' },
+        'LayoutColumns': { category: 'Layout' },
+        'LayoutGrid': { category: 'Layout' },
+        'LayoutStack': { category: 'Layout' },
+        // Card components
+        'CardIcon': { category: 'Card' },
+        'CardImage': { category: 'Card' },
+        // Hero components
+        'HeroCta': { category: 'Hero' },
+        'HeroBillboard': { category: 'Hero' },
+      },
+    },
   },
 
   nitro: {
@@ -12,6 +43,7 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    plugins: [tailwindcss()],
     server: {
       allowedHosts: ['.gitpod.io']
     }
