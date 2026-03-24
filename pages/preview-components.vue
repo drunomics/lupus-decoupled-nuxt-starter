@@ -18,7 +18,7 @@
 
     <!-- Two-column: Intro text + Icon Cards stacked -->
     <LayoutSection padding-top="lg" padding-bottom="lg" content-width="regular">
-      <LayoutColumns layout="50-50">
+      <LayoutTwoColumns layout="50-50">
         <template #col-1>
           <LayoutStack direction="column" gap="md">
             <BaseHeading text="Composable by design" :level="2" />
@@ -32,7 +32,7 @@
             <CardIcon icon="ph:paint-brush" heading="Themeable" text="<p>All colors come from CSS variables. Swap the palette in theme.css and every component updates.</p>" radius="lg" background="muted" />
           </LayoutStack>
         </template>
-      </LayoutColumns>
+      </LayoutTwoColumns>
     </LayoutSection>
 
     <!-- Horizontal Image Cards in 2 columns -->
@@ -162,15 +162,15 @@
     <LayoutSection padding-top="none" padding-bottom="lg" content-width="narrow">
       <LayoutStack direction="column" gap="md" align="stretch">
         <BaseHeading text="Column layouts" :level="2" />
-        <LayoutColumns layout="75-25">
+        <LayoutTwoColumns layout="75-25">
           <template #col-1>
             <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>75%</p>" />
           </template>
           <template #col-2>
             <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>25%</p>" />
           </template>
-        </LayoutColumns>
-        <LayoutColumns layout="33-33-33">
+        </LayoutTwoColumns>
+        <LayoutThreeColumns layout="33-33-33">
           <template #col-1>
             <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>33%</p>" />
           </template>
@@ -180,21 +180,7 @@
           <template #col-3>
             <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>33%</p>" />
           </template>
-        </LayoutColumns>
-        <LayoutColumns layout="25-25-25-25">
-          <template #col-1>
-            <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>25%</p>" />
-          </template>
-          <template #col-2>
-            <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>25%</p>" />
-          </template>
-          <template #col-3>
-            <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>25%</p>" />
-          </template>
-          <template #col-4>
-            <BaseRichText text="<p style='text-align:center;background:var(--color-muted);border-radius:0.375rem;padding:1rem'>25%</p>" />
-          </template>
-        </LayoutColumns>
+        </LayoutThreeColumns>
       </LayoutStack>
     </LayoutSection>
   </div>

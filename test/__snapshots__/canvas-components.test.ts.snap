@@ -123,32 +123,6 @@ exports[`Hero Components > hero-cta renders centered 1`] = `
 </div>"
 `;
 
-exports[`Layout Components > layout-columns renders 50-50 1`] = `
-"<div class="grid grid-cols-1 gap-4 sm:gap-6 w-full sm:grid-cols-[1fr_1fr]">
-  <div>
-    <p>Left</p>
-  </div>
-  <div>
-    <p>Right</p>
-  </div>
-  <!--v-if-->
-  <!--v-if-->
-</div>"
-`;
-
-exports[`Layout Components > layout-columns renders 75-25 1`] = `
-"<div class="grid grid-cols-1 gap-4 sm:gap-6 w-full sm:grid-cols-[3fr_1fr]">
-  <div>
-    <p>Wide</p>
-  </div>
-  <div>
-    <p>Narrow</p>
-  </div>
-  <!--v-if-->
-  <!--v-if-->
-</div>"
-`;
-
 exports[`Layout Components > layout-grid renders 3 columns 1`] = `
 "<div class="grid grid-cols-1 w-full md:grid-cols-3 gap-6">
   <div>A</div>
@@ -186,5 +160,41 @@ exports[`Layout Components > layout-stack renders vertical 1`] = `
 "<div class="flex flex-col gap-4 items-start justify-start">
   <div>A</div>
   <div>B</div>
+</div>"
+`;
+
+exports[`Layout Components > layout-three-columns renders 33-33-33 1`] = `
+"<div class="grid grid-cols-1 gap-4 sm:gap-6 w-full sm:grid-cols-[1fr_1fr_1fr]">
+  <div>
+    <p>A</p>
+  </div>
+  <div>
+    <p>B</p>
+  </div>
+  <div>
+    <p>C</p>
+  </div>
+</div>"
+`;
+
+exports[`Layout Components > layout-two-columns renders 50-50 1`] = `
+"<div class="grid grid-cols-1 gap-4 sm:gap-6 w-full sm:grid-cols-[1fr_1fr]">
+  <div>
+    <p>Left</p>
+  </div>
+  <div>
+    <p>Right</p>
+  </div>
+</div>"
+`;
+
+exports[`Layout Components > layout-two-columns renders 75-25 1`] = `
+"<div class="grid grid-cols-1 gap-4 sm:gap-6 w-full sm:grid-cols-[3fr_1fr]">
+  <div>
+    <p>Wide</p>
+  </div>
+  <div>
+    <p>Narrow</p>
+  </div>
 </div>"
 `;

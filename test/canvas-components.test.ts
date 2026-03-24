@@ -3,7 +3,8 @@ import { mountSuspended } from '@nuxt/test-utils/runtime'
 
 // Layout components
 import LayoutSection from '~/components/Canvas/Layout/layout-section.vue'
-import LayoutColumns from '~/components/Canvas/Layout/layout-columns.vue'
+import LayoutTwoColumns from '~/components/Canvas/Layout/layout-two-columns.vue'
+import LayoutThreeColumns from '~/components/Canvas/Layout/layout-three-columns.vue'
 import LayoutGrid from '~/components/Canvas/Layout/layout-grid.vue'
 import LayoutStack from '~/components/Canvas/Layout/layout-stack.vue'
 
@@ -37,18 +38,26 @@ describe('Layout Components', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('layout-columns renders 50-50', async () => {
-    const wrapper = await mountSuspended(LayoutColumns, {
+  it('layout-two-columns renders 50-50', async () => {
+    const wrapper = await mountSuspended(LayoutTwoColumns, {
       props: { layout: '50-50' },
       slots: { 'col-1': '<p>Left</p>', 'col-2': '<p>Right</p>' },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('layout-columns renders 75-25', async () => {
-    const wrapper = await mountSuspended(LayoutColumns, {
+  it('layout-two-columns renders 75-25', async () => {
+    const wrapper = await mountSuspended(LayoutTwoColumns, {
       props: { layout: '75-25' },
       slots: { 'col-1': '<p>Wide</p>', 'col-2': '<p>Narrow</p>' },
+    })
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('layout-three-columns renders 33-33-33', async () => {
+    const wrapper = await mountSuspended(LayoutThreeColumns, {
+      props: { layout: '33-33-33' },
+      slots: { 'col-1': '<p>A</p>', 'col-2': '<p>B</p>', 'col-3': '<p>C</p>' },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
