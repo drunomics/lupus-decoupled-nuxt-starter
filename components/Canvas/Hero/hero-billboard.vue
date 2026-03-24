@@ -3,7 +3,6 @@
     :class="[
       'relative flex w-full overflow-hidden',
       ...Object.values(classes),
-      overlapHeader ? '-mt-16' : '',
     ]"
   >
     <div
@@ -22,7 +21,7 @@
         :class="['absolute inset-0', imageClasses.overlay]"
       />
     </div>
-    <div :class="['relative py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3', contentPosition === 'center' ? 'text-center mx-auto items-center' : '']">
+    <div :class="['relative py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3', alignment === 'center' ? 'text-center mx-auto items-center' : '']">
       <slot />
     </div>
   </div>
@@ -37,11 +36,11 @@ const props = withDefaults(defineProps<{
    */
   height?: 'full' | 'large' | 'ribbon'
   /**
-   * Content position
-   * @example center-start
-   * @enumLabels {"top-start": "Top left", "center-start": "Center left", "bottom-start": "Bottom left", "center": "Center"}
+   * Content alignment
+   * @example center-left
+   * @enumLabels {"top-left": "Top left", "center-left": "Center left", "bottom-left": "Bottom left", "center": "Center"}
    */
-  contentPosition?: 'top-start' | 'center-start' | 'bottom-start' | 'center'
+  alignment?: 'top-left' | 'center-left' | 'bottom-left' | 'center'
   /**
    * Background image
    * @example src=https://placehold.co/1920x1080 alt="Hero background" width=1920 height=1080
@@ -59,16 +58,11 @@ const props = withDefaults(defineProps<{
    * @enumLabels {"0%": "None", "20%": "Light", "40%": "Medium", "60%": "Dark", "75%": "Extra dark"}
    */
   overlayOpacity?: '0%' | '20%' | '40%' | '60%' | '75%'
-  /**
-   * Overlap the site header
-   */
-  overlapHeader?: boolean
 }>(), {
   height: 'full',
-  contentPosition: 'center-start',
+  alignment: 'center-left',
   imagePosition: 'center',
   overlayOpacity: '0%',
-  overlapHeader: false,
 })
 
 defineSlots<{
@@ -85,11 +79,11 @@ const classes = computed(() => ({
     ribbon: 'min-h-48 md:min-h-64',
   })[props.height] || '',
   position: ({
-    'top-start': 'items-start justify-start',
-    'center-start': 'items-center justify-start',
-    'bottom-start': 'items-end justify-start',
+    'top-left': 'items-start justify-start',
+    'center-left': 'items-center justify-start',
+    'bottom-left': 'items-end justify-start',
     'center': 'items-center justify-center',
-  })[props.contentPosition] || '',
+  })[props.alignment] || '',
 }))
 
 const imageClasses = computed(() => ({

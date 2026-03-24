@@ -211,7 +211,7 @@ describe('Hero Components', () => {
     const wrapper = await mountSuspended(HeroBillboard, {
       props: {
         height: 'large',
-        contentPosition: 'center-start',
+        alignment: 'center-left',
         backgroundImage: { src: 'https://example.com/hero.jpg', alt: 'Hero', width: 1920, height: 1080 },
         overlayOpacity: '40%',
       },
