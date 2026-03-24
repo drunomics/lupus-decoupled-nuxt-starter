@@ -29,7 +29,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "nuxt-component-preview": "^1.0.0-beta.10",
+    "nuxt-component-preview": "^1.0.0-beta.11",
     "nuxtjs-drupal-ce": "^2.6.0"
   }
 }
