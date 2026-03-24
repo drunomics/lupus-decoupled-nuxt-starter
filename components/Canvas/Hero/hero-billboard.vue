@@ -16,12 +16,16 @@
         :height="backgroundImage.height"
         :class="['size-full object-cover', imageClasses.imagePosition]"
       >
-      <div
-        v-if="overlayOpacity !== '0%'"
-        :class="['absolute inset-0', imageClasses.overlay]"
-      />
     </div>
-    <div :class="['relative py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3', alignment === 'center' ? 'text-center mx-auto items-center' : '']">
+    <div
+      v-if="backgroundImage?.src && background"
+      :class="['absolute inset-0 opacity-40', imageClasses.tint]"
+    />
+    <div
+      v-if="darken !== '0%'"
+      :class="['absolute inset-0 bg-black', imageClasses.darken]"
+    />
+    <div :class="['relative z-10 flex-1 py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3', alignment === 'center' ? 'text-center mx-auto items-center' : '']">
       <slot />
     </div>
   </div>
@@ -42,8 +46,12 @@ const props = withDefaults(defineProps<{
    */
   alignment?: 'top-left' | 'center-left' | 'bottom-left' | 'center'
   /**
+   * Background color (solid background or image tint)
+   * @enumLabels {"primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted"}
+   */
+  background?: 'primary' | 'secondary' | 'accent' | 'muted'
+  /**
    * Background image
-   * @example src=https://placehold.co/1920x1080 alt="Hero background" width=1920 height=1080
    */
   backgroundImage?: CanvasImage
   /**
@@ -53,16 +61,16 @@ const props = withDefaults(defineProps<{
    */
   imagePosition?: 'top' | 'center' | 'bottom'
   /**
-   * Background overlay opacity
+   * Darken the background
    * @example 0%
-   * @enumLabels {"0%": "None", "20%": "Light", "40%": "Medium", "60%": "Dark", "75%": "Extra dark"}
+   * @enumLabels {"0%": "None", "20%": "Slightly", "40%": "Medium", "60%": "Strong", "75%": "Very strong"}
    */
-  overlayOpacity?: '0%' | '20%' | '40%' | '60%' | '75%'
+  darken?: '0%' | '20%' | '40%' | '60%' | '75%'
 }>(), {
   height: 'full',
   alignment: 'center-left',
   imagePosition: 'center',
-  overlayOpacity: '0%',
+  darken: '0%',
 })
 
 defineSlots<{
@@ -74,8 +82,8 @@ defineSlots<{
 
 const classes = computed(() => ({
   height: ({
-    full: 'h-dvh',
-    large: 'min-h-[60vh]',
+    full: 'min-h-dvh',
+    large: 'min-h-[32rem]',
     ribbon: 'min-h-48 md:min-h-64',
   })[props.height] || '',
   position: ({
@@ -84,6 +92,12 @@ const classes = computed(() => ({
     'bottom-left': 'items-end justify-start',
     'center': 'items-center justify-center',
   })[props.alignment] || '',
+  bg: props.backgroundImage?.src ? '' : ({
+    primary: 'bg-primary text-primary-foreground',
+    secondary: 'bg-secondary text-secondary-foreground',
+    accent: 'bg-accent text-accent-foreground',
+    muted: 'bg-muted text-muted-foreground',
+  })[props.background || ''] || '',
 }))
 
 const imageClasses = computed(() => ({
@@ -92,12 +106,18 @@ const imageClasses = computed(() => ({
     center: 'object-center',
     bottom: 'object-bottom',
   })[props.imagePosition] || '',
-  overlay: ({
+  tint: ({
+    primary: 'bg-primary',
+    secondary: 'bg-secondary',
+    accent: 'bg-accent',
+    muted: 'bg-muted',
+  })[props.background || ''] || '',
+  darken: ({
     '0%': '',
-    '20%': 'bg-black/20',
-    '40%': 'bg-black/40',
-    '60%': 'bg-black/60',
-    '75%': 'bg-black/75',
-  })[props.overlayOpacity] || '',
+    '20%': 'opacity-20',
+    '40%': 'opacity-40',
+    '60%': 'opacity-60',
+    '75%': 'opacity-75',
+  })[props.darken] || '',
 }))
 </script>

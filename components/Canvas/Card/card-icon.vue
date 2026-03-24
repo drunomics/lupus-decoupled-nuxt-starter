@@ -18,7 +18,7 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div
         v-if="text"
-        class="text-sm text-muted-foreground"
+        class="text-sm opacity-70"
         v-html="text"
       />
     </div>
@@ -66,10 +66,10 @@ const props = withDefaults(defineProps<{
   url?: string
   /**
    * Background color
-   * @example default
-   * @enumLabels {"default": "Default", "primary": "Primary", "accent": "Accent", "muted": "Muted"}
+   * @example transparent
+   * @enumLabels {"default": "Default", "transparent": "Transparent", "primary": "Primary", "accent": "Accent", "muted": "Muted"}
    */
-  background?: 'default' | 'primary' | 'accent' | 'muted'
+  background?: 'default' | 'transparent' | 'primary' | 'accent' | 'muted'
   /**
    * Corner radius
    * @example md
@@ -94,11 +94,12 @@ const classes = computed(() => ({
     center: 'items-center text-center',
   })[props.align] || '',
   bg: ({
-    default: '',
+    default: 'bg-background',
+    transparent: '',
     primary: 'bg-primary text-primary-foreground',
     accent: 'bg-accent text-accent-foreground',
-    muted: 'bg-muted text-muted-foreground',
-  })[props.background || 'default'] || '',
+    muted: 'bg-muted text-foreground',
+  })[props.background || 'transparent'] || '',
   radius: ({
     none: '',
     sm: 'rounded-sm',

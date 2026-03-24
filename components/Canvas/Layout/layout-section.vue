@@ -2,7 +2,6 @@
   <section
     :class="[
       'relative w-full',
-      colorScheme === 'dark' ? 'dark' : '',
       classes.bg,
       classes.paddingTop,
       classes.paddingBottom,
@@ -19,11 +18,15 @@
         :height="backgroundImage.height"
         class="size-full object-cover"
       >
-      <div
-        v-if="overlayOpacity !== '0%'"
-        :class="['absolute inset-0', classes.overlay]"
-      />
     </div>
+    <div
+      v-if="backgroundImage?.src && background && background !== 'default'"
+      :class="['absolute inset-0 opacity-40', classes.tint]"
+    />
+    <div
+      v-if="darken !== '0%'"
+      :class="['absolute inset-0 bg-black', classes.darken]"
+    />
     <div :class="['relative mx-auto', classes.contentWidth]">
       <slot />
     </div>
@@ -33,28 +36,20 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   /**
-   * Color scheme
-   * @example light
-   * @enumLabels {"light": "Light", "dark": "Dark"}
-   */
-  colorScheme?: 'light' | 'dark'
-  /**
    * Background color
-   * @example default
    * @enumLabels {"default": "Default", "primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted"}
    */
   background?: 'default' | 'primary' | 'secondary' | 'accent' | 'muted'
   /**
    * Background image
-   * @example src=https://placehold.co/1920x600 alt="Section background" width=1920 height=600
    */
   backgroundImage?: CanvasImage
   /**
-   * Background overlay opacity
+   * Darken the background
    * @example 0%
-   * @enumLabels {"0%": "None", "20%": "Light", "40%": "Medium", "60%": "Dark", "75%": "Extra dark"}
+   * @enumLabels {"0%": "None", "20%": "Slightly", "40%": "Medium", "60%": "Strong", "75%": "Very strong"}
    */
-  overlayOpacity?: '0%' | '20%' | '40%' | '60%' | '75%'
+  darken?: '0%' | '20%' | '40%' | '60%' | '75%'
   /**
    * Top padding
    * @example md
@@ -74,8 +69,7 @@ const props = withDefaults(defineProps<{
    */
   contentWidth?: 'narrow' | 'regular' | 'full'
 }>(), {
-  colorScheme: 'light',
-  overlayOpacity: '0%',
+  darken: '0%',
   paddingTop: 'md',
   paddingBottom: 'md',
   contentWidth: 'regular',
@@ -110,13 +104,19 @@ const classes = computed(() => ({
     lg: 'pb-16',
     xl: 'pb-24',
   })[props.paddingBottom] || '',
-  overlay: ({
+  tint: ({
+    primary: 'bg-primary',
+    secondary: 'bg-secondary',
+    accent: 'bg-accent',
+    muted: 'bg-muted',
+  })[props.background || ''] || '',
+  darken: ({
     '0%': '',
-    '20%': 'bg-black/20',
-    '40%': 'bg-black/40',
-    '60%': 'bg-black/60',
-    '75%': 'bg-black/75',
-  })[props.overlayOpacity] || '',
+    '20%': 'opacity-20',
+    '40%': 'opacity-40',
+    '60%': 'opacity-60',
+    '75%': 'opacity-75',
+  })[props.darken] || '',
   contentWidth: ({
     narrow: 'max-w-3xl px-4',
     regular: 'max-w-6xl px-4 md:px-8',

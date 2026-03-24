@@ -1,7 +1,6 @@
 <template>
   <!-- eslint-disable-next-line vue/no-v-html -->
   <div
-    v-if="text"
     :class="['prose', ...Object.values(classes)]"
     v-html="text"
   />

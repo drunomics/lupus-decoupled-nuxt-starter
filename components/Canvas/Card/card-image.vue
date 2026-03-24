@@ -6,7 +6,7 @@
       'flex overflow-hidden no-underline text-inherit transition duration-300',
       url ? 'cursor-pointer hover:scale-105' : '',
       orientation === 'horizontal' ? 'flex-row' : 'flex-col',
-      cardStyle === 'framed' ? 'border border-border rounded-lg' : '',
+      cardStyle === 'outlined' ? 'border border-border' : '',
       ...Object.values(classes),
     ]"
   >
@@ -20,11 +20,11 @@
         loading="lazy"
       >
     </div>
-    <div :class="['flex flex-col gap-2', cardStyle === 'framed' ? 'p-4 lg:p-6' : 'py-4 lg:py-6']">
+    <div :class="['flex flex-col gap-2', cardStyle === 'outlined' ? 'p-4 lg:p-6' : 'py-4 lg:py-6']">
       <component :is="`h${level}`" v-if="heading" class="m-0 text-lg font-semibold">
         {{ heading }}
       </component>
-      <p v-if="text" class="m-0 text-sm text-muted-foreground">{{ text }}</p>
+      <p v-if="text" class="m-0 text-sm opacity-70">{{ text }}</p>
     </div>
   </component>
 </template>
@@ -65,28 +65,42 @@ const props = withDefaults(defineProps<{
   orientation?: 'vertical' | 'horizontal'
   /**
    * Card style
-   * @example framed
-   * @enumLabels {"framed": "Framed", "full": "Full width"}
+   * @example outlined
+   * @enumLabels {"outlined": "Outlined", "flat": "Flat"}
    */
-  cardStyle?: 'framed' | 'full'
+  cardStyle?: 'outlined' | 'flat'
+  /**
+   * Corner radius
+   * @example md
+   * @enumLabels {"none": "None", "sm": "Small", "md": "Medium", "lg": "Large"}
+   */
+  radius?: 'none' | 'sm' | 'md' | 'lg'
   /**
    * Background color
    * @example default
-   * @enumLabels {"default": "Default", "accent": "Accent", "primary": "Primary", "muted": "Muted"}
+   * @enumLabels {"default": "Default", "transparent": "Transparent", "accent": "Accent", "primary": "Primary", "muted": "Muted"}
    */
-  background?: 'default' | 'accent' | 'primary' | 'muted'
+  background?: 'default' | 'transparent' | 'accent' | 'primary' | 'muted'
 }>(), {
   level: 3,
   orientation: 'vertical',
-  cardStyle: 'framed',
+  cardStyle: 'outlined',
+  radius: 'md',
 })
 
 const classes = computed(() => ({
   bg: ({
-    default: '',
+    default: 'bg-background',
+    transparent: '',
     primary: 'bg-primary text-primary-foreground',
     accent: 'bg-accent text-accent-foreground',
-    muted: 'bg-muted text-muted-foreground',
+    muted: 'bg-muted text-foreground',
   })[props.background || 'default'] || '',
+  radius: ({
+    none: '',
+    sm: 'rounded-sm',
+    md: 'rounded-md',
+    lg: 'rounded-lg',
+  })[props.radius] || '',
 }))
 </script>

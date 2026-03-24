@@ -5,7 +5,7 @@
       height="ribbon"
       content-position="center"
       :background-image="{ src: 'https://placehold.co/1920x600/0d3d38/0d3d38', alt: 'Dark background', width: 1920, height: 600 }"
-      overlay-opacity="20%"
+      darken="20%"
     >
       <LayoutStack direction="column" gap="md" align="center">
         <BaseHeading text="Canvas Starter Components" :level="1" size="4xl" text-color="inverted" align="center" />
@@ -66,7 +66,7 @@
             heading="Full width style"
             text="No border, content sits directly below the image."
             :media="{ src: 'https://placehold.co/600x400/0d7a6f/5eeade', alt: 'Thumbnail', width: 600, height: 400 }"
-            card-style="full"
+            card-style="flat"
             url="#"
           />
           <CardImage
@@ -84,7 +84,7 @@
     <HeroCta
       heading="Start composing"
       text="Create pages visually with Canvas and render them with Nuxt."
-      background="inverted"
+      background="primary"
       align="center"
     >
       <template #actions>

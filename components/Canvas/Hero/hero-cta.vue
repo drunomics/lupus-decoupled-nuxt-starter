@@ -17,12 +17,16 @@
         :height="backgroundImage.height"
         class="size-full object-cover"
       >
-      <div
-        v-if="overlayOpacity !== '0%'"
-        :class="['absolute inset-0', innerClasses.overlay]"
-      />
     </div>
-    <div :class="['relative flex flex-col gap-6 lg:gap-8 py-20 lg:py-28 xl:py-36 px-4', innerClasses.contentAlign]">
+    <div
+      v-if="backgroundImage?.src && background"
+      :class="['absolute inset-0 opacity-40', innerClasses.tint]"
+    />
+    <div
+      v-if="darken !== '0%'"
+      :class="['absolute inset-0 bg-black', innerClasses.darken]"
+    />
+    <div :class="['relative flex flex-col gap-6 lg:gap-8 py-20 lg:py-28 xl:py-36 px-6 md:px-12 lg:px-16', innerClasses.contentAlign]">
       <component :is="`h${level}`" v-if="heading" class="m-0 text-4xl md:text-5xl font-bold max-w-3xl">
         {{ heading }}
       </component>
@@ -61,24 +65,23 @@ const props = withDefaults(defineProps<{
   /**
    * Background color
    * @example primary
-   * @enumLabels {"primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted", "inverted": "Inverted"}
+   * @enumLabels {"primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted"}
    */
-  background?: 'primary' | 'secondary' | 'accent' | 'muted' | 'inverted'
+  background?: 'primary' | 'secondary' | 'accent' | 'muted'
   /**
    * Background image
-   * @example src=https://placehold.co/1920x600 alt="CTA background" width=1920 height=600
    */
   backgroundImage?: CanvasImage
   /**
-   * Background overlay opacity
-   * @example 40%
-   * @enumLabels {"0%": "None", "20%": "Light", "40%": "Medium", "60%": "Dark", "75%": "Extra dark"}
+   * Darken the background
+   * @example 0%
+   * @enumLabels {"0%": "None", "20%": "Slightly", "40%": "Medium", "60%": "Strong", "75%": "Very strong"}
    */
-  overlayOpacity?: '0%' | '20%' | '40%' | '60%' | '75%'
+  darken?: '0%' | '20%' | '40%' | '60%' | '75%'
 }>(), {
   level: 2,
   align: 'center',
-  overlayOpacity: '40%',
+  darken: '40%',
 })
 
 defineSlots<{
@@ -100,22 +103,27 @@ const classes = computed(() => ({
     secondary: 'bg-secondary text-secondary-foreground',
     accent: 'bg-accent text-accent-foreground',
     muted: 'bg-muted text-muted-foreground',
-    inverted: 'bg-inverted text-inverted-foreground',
   })[props.background || 'default'] || '',
 }))
 
 const innerClasses = computed(() => ({
   contentAlign: ({
-    start: 'items-start',
+    start: 'items-start max-w-4xl',
     center: 'items-center mx-auto max-w-4xl',
-    end: 'items-end ml-auto',
+    end: 'items-end ml-auto max-w-4xl',
   })[props.align] || '',
-  overlay: ({
+  tint: ({
+    primary: 'bg-primary',
+    secondary: 'bg-secondary',
+    accent: 'bg-accent',
+    muted: 'bg-muted',
+  })[props.background || ''] || '',
+  darken: ({
     '0%': '',
-    '20%': 'bg-black/20',
-    '40%': 'bg-black/40',
-    '60%': 'bg-black/60',
-    '75%': 'bg-black/75',
-  })[props.overlayOpacity] || '',
+    '20%': 'opacity-20',
+    '40%': 'opacity-40',
+    '60%': 'opacity-60',
+    '75%': 'opacity-75',
+  })[props.darken] || '',
 }))
 </script>

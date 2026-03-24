@@ -190,7 +190,7 @@ describe('Card Components', () => {
         text: 'A description.',
         media: { src: 'https://example.com/img.jpg', alt: 'Thumb', width: 600, height: 400 },
         orientation: 'horizontal',
-        cardStyle: 'full',
+        cardStyle: 'flat',
         background: 'accent',
       },
     })
@@ -213,7 +213,7 @@ describe('Hero Components', () => {
         height: 'large',
         alignment: 'center-left',
         backgroundImage: { src: 'https://example.com/hero.jpg', alt: 'Hero', width: 1920, height: 1080 },
-        overlayOpacity: '40%',
+        darken: '40%',
       },
       slots: { default: '<h1>Welcome</h1>' },
     })

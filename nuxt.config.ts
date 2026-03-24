@@ -11,12 +11,10 @@ export default defineNuxtConfig({
   // e.g. Canvas/Layout/layout-section.vue -> <layout-section>
   components: [
     { path: '~/components/Canvas', global: true, pathPrefix: false, prefix: '' },
-    '~/components',
   ],
 
   drupalCe: {
     drupalBaseUrl: process.env.NUXT_PUBLIC_DRUPAL_CE_DRUPAL_BASE_URL || 'https://lupus-decoupled.ddev.site',
-    exposeAPIRouteRules: true,
   },
 
   componentPreview: {
@@ -32,10 +30,7 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
-    server: {
-      allowedHosts: ['.gitpod.io']
-    }
   },
 
-  compatibilityDate: '2024-09-10',
+  compatibilityDate: '2026-03-24',
 })

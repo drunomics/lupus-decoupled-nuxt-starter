@@ -2,14 +2,11 @@
   <component
     :is="href ? 'a' : 'button'"
     :href="href || undefined"
-    :target="href ? target : undefined"
-    :disabled="disabled || undefined"
     class="group"
     :class="[
-      'inline-flex items-center rounded-lg font-medium leading-tight no-underline transition duration-300 ease-in-out',
+      'inline-flex items-center rounded-lg font-medium leading-tight no-underline cursor-pointer transition duration-300 ease-in-out',
       'focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none',
       ...Object.values(classes),
-      disabled ? 'opacity-50 pointer-events-none' : 'cursor-pointer',
     ]"
   >
     <BaseIcon v-if="icon && iconPosition === 'start'" :name="icon" :size="iconSize" class="transition-transform duration-300" />
@@ -34,12 +31,6 @@ const props = withDefaults(defineProps<{
    */
   href?: string
   /**
-   * Link target
-   * @example _self
-   * @enumLabels {"_self": "Same window", "_blank": "New tab"}
-   */
-  target?: '_self' | '_blank'
-  /**
    * Visual style
    * @example primary
    * @enumLabels {"primary": "Primary", "secondary": "Secondary", "outline": "Outline"}
@@ -62,16 +53,10 @@ const props = withDefaults(defineProps<{
    * @enumLabels {"start": "Before label", "end": "After label"}
    */
   iconPosition?: 'start' | 'end'
-  /**
-   * Disabled state
-   */
-  disabled?: boolean
 }>(), {
-  target: '_self',
   variant: 'primary',
   size: 'md',
   iconPosition: 'end',
-  disabled: false,
 })
 
 const classes = computed(() => ({

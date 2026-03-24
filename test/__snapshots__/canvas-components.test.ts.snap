@@ -9,35 +9,35 @@ exports[`Base Components > base-banner renders info variant 1`] = `
 `;
 
 exports[`Base Components > base-button renders all variants 1`] = `
-"<a href="/test" target="_self" class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-primary text-primary-foreground hover:bg-primary/75 gap-2 px-5 py-2 text-base xl:py-3 cursor-pointer">
+"<a href="/test" class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline cursor-pointer transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-primary text-primary-foreground hover:bg-primary/75 gap-2 px-5 py-2 text-base xl:py-3">
   <!--v-if--><span>primary</span>
   <!--v-if-->
 </a>"
 `;
 
 exports[`Base Components > base-button renders all variants 2`] = `
-"<a href="/test" target="_self" class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-accent text-accent-foreground hover:bg-accent/70 gap-2 px-5 py-2 text-base xl:py-3 cursor-pointer">
+"<a href="/test" class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline cursor-pointer transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-accent text-accent-foreground hover:bg-accent/70 gap-2 px-5 py-2 text-base xl:py-3">
   <!--v-if--><span>secondary</span>
   <!--v-if-->
 </a>"
 `;
 
 exports[`Base Components > base-button renders all variants 3`] = `
-"<a href="/test" target="_self" class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-transparent border border-current hover:bg-current/15 gap-2 px-5 py-2 text-base xl:py-3 cursor-pointer">
+"<a href="/test" class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline cursor-pointer transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-transparent border border-current hover:bg-current/15 gap-2 px-5 py-2 text-base xl:py-3">
   <!--v-if--><span>outline</span>
   <!--v-if-->
 </a>"
 `;
 
 exports[`Base Components > base-button renders primary 1`] = `
-"<button class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-primary text-primary-foreground hover:bg-primary/75 gap-2 px-5 py-2 text-base xl:py-3 cursor-pointer">
+"<button class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline cursor-pointer transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-primary text-primary-foreground hover:bg-primary/75 gap-2 px-5 py-2 text-base xl:py-3">
   <!--v-if--><span>Click me</span>
   <!--v-if-->
 </button>"
 `;
 
 exports[`Base Components > base-button renders with icon 1`] = `
-"<button class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-primary text-primary-foreground hover:bg-primary/75 gap-3 px-6 py-3 text-lg xl:py-3.5 cursor-pointer">
+"<button class="group inline-flex items-center rounded-lg font-medium leading-tight no-underline cursor-pointer transition duration-300 ease-in-out focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring outline-none bg-primary text-primary-foreground hover:bg-primary/75 gap-3 px-6 py-3 text-lg xl:py-3.5">
   <!--v-if--><span>Next</span><span class="inline-block bg-current transition-transform duration-300 group-hover:translate-x-1" style="width: 24px; height: 24px;"></span>
 </button>"
 `;
@@ -69,10 +69,10 @@ exports[`Base Components > base-rich-text renders html content 1`] = `
 `;
 
 exports[`Card Components > card-icon renders 1`] = `
-"<div class="flex flex-col gap-3 p-5 md:p-6 no-underline text-inherit transition duration-300 items-center text-center bg-muted text-muted-foreground rounded-lg"><span class="inline-block bg-current" style="width: 32px; height: 32px;"></span>
+"<div class="flex flex-col gap-3 p-5 md:p-6 no-underline text-inherit transition duration-300 items-center text-center bg-muted text-foreground rounded-lg"><span class="inline-block bg-current" style="width: 32px; height: 32px;"></span>
   <div class="flex flex-col gap-1">
     <h3 class="m-0 text-lg font-semibold">Fast</h3><!-- eslint-disable-next-line vue/no-v-html -->
-    <div class="text-sm text-muted-foreground">
+    <div class="text-sm opacity-70">
       <p>Very fast.</p>
     </div>
   </div>
@@ -80,31 +80,31 @@ exports[`Card Components > card-icon renders 1`] = `
 `;
 
 exports[`Card Components > card-image renders horizontal 1`] = `
-"<div class="flex overflow-hidden no-underline text-inherit transition duration-300 flex-row bg-accent text-accent-foreground">
+"<div class="flex overflow-hidden no-underline text-inherit transition duration-300 flex-row bg-accent text-accent-foreground rounded-md">
   <div class="w-2/5 shrink-0"><img src="https://example.com/img.jpg" alt="Thumb" width="600" height="400" class="block w-full object-cover h-full" loading="lazy"></div>
   <div class="flex flex-col gap-2 py-4 lg:py-6">
     <h3 class="m-0 text-lg font-semibold">Article</h3>
-    <p class="m-0 text-sm text-muted-foreground">A description.</p>
+    <p class="m-0 text-sm opacity-70">A description.</p>
   </div>
 </div>"
 `;
 
 exports[`Card Components > card-image renders vertical 1`] = `
-"<div class="flex overflow-hidden no-underline text-inherit transition duration-300 flex-col border border-border rounded-lg">
+"<div class="flex overflow-hidden no-underline text-inherit transition duration-300 flex-col border border-border bg-background rounded-md">
   <div class=""><img src="https://example.com/img.jpg" alt="Thumb" width="600" height="400" class="block w-full object-cover h-auto" loading="lazy"></div>
   <div class="flex flex-col gap-2 p-4 lg:p-6">
     <h3 class="m-0 text-lg font-semibold">Article</h3>
-    <p class="m-0 text-sm text-muted-foreground">A description.</p>
+    <p class="m-0 text-sm opacity-70">A description.</p>
   </div>
 </div>"
 `;
 
 exports[`Hero Components > hero-billboard renders 1`] = `
-"<div class="relative flex w-full overflow-hidden min-h-[60vh] items-center justify-start">
-  <div class="absolute inset-0"><img src="https://example.com/hero.jpg" alt="Hero" width="1920" height="1080" class="size-full object-cover object-center">
-    <div class="absolute inset-0 bg-black/40"></div>
-  </div>
-  <div class="relative py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3">
+"<div class="relative flex w-full overflow-hidden min-h-[32rem] items-center justify-start">
+  <div class="absolute inset-0"><img src="https://example.com/hero.jpg" alt="Hero" width="1920" height="1080" class="size-full object-cover object-center"></div>
+  <!--v-if-->
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+  <div class="relative z-10 flex-1 py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3">
     <h1>Welcome</h1>
   </div>
 </div>"
@@ -113,7 +113,9 @@ exports[`Hero Components > hero-billboard renders 1`] = `
 exports[`Hero Components > hero-cta renders centered 1`] = `
 "<div class="relative text-center bg-primary text-primary-foreground">
   <!--v-if-->
-  <div class="relative flex flex-col gap-6 lg:gap-8 py-20 lg:py-28 xl:py-36 px-4 items-center mx-auto max-w-4xl">
+  <!--v-if-->
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+  <div class="relative flex flex-col gap-6 lg:gap-8 py-20 lg:py-28 xl:py-36 px-6 md:px-12 lg:px-16 items-center mx-auto max-w-4xl">
     <h2 class="m-0 text-4xl md:text-5xl font-bold max-w-3xl">Call to action</h2>
     <p class="m-0 text-xl font-normal max-w-2xl">Do it now.</p>
     <div class="flex flex-col gap-4 sm:flex-row justify-center"><button>Go</button></div>
@@ -158,12 +160,16 @@ exports[`Layout Components > layout-grid renders 3 columns 1`] = `
 exports[`Layout Components > layout-section renders with background and padding 1`] = `
 "<section class="relative w-full bg-muted text-muted-foreground pt-16 pb-16">
   <!--v-if-->
+  <!--v-if-->
+  <!--v-if-->
   <div class="relative mx-auto max-w-3xl px-4"></div>
 </section>"
 `;
 
 exports[`Layout Components > layout-section renders with defaults 1`] = `
 "<section class="relative w-full pt-8 pb-8">
+  <!--v-if-->
+  <!--v-if-->
   <!--v-if-->
   <div class="relative mx-auto max-w-6xl px-4 md:px-8"></div>
 </section>"
