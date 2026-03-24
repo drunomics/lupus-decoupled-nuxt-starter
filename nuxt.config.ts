@@ -21,20 +21,8 @@ export default defineNuxtConfig({
 
   componentPreview: {
     componentIndex: {
-      category: 'Base',
-      overrides: {
-        // Layout components
-        'LayoutSection': { category: 'Layout' },
-        'LayoutColumns': { category: 'Layout' },
-        'LayoutGrid': { category: 'Layout' },
-        'LayoutStack': { category: 'Layout' },
-        // Card components
-        'CardIcon': { category: 'Card' },
-        'CardImage': { category: 'Card' },
-        // Hero components
-        'HeroCta': { category: 'Hero' },
-        'HeroBillboard': { category: 'Hero' },
-      },
+      // Derive Canvas component categories from folder names (Base/, Layout/, Card/, Hero/)
+      category: { directory: true, fallback: 'Misc' },
     },
   },
 
