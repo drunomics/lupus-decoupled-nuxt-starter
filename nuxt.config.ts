@@ -9,13 +9,16 @@ export default defineNuxtConfig({
   // Register Canvas components as global. Group subfolders (Layout/, Base/, etc.)
   // are for organization only — pathPrefix: false means they don't affect component names.
   // e.g. Canvas/Layout/layout-section.vue -> <layout-section>
-  components: [
-    { path: '~/components/Canvas', global: true, pathPrefix: false, prefix: '' },
-  ],
 
   drupalCe: {
     drupalBaseUrl: process.env.NUXT_PUBLIC_DRUPAL_CE_DRUPAL_BASE_URL || 'https://lupus-decoupled.ddev.site',
   },
+
+  components: [
+    { path: '~/components/Canvas', global: true, pathPrefix: false, prefix: '' },
+    { path: '~/components/global', global: true },
+    '~/components',
+  ],
 
   componentPreview: {
     componentIndex: {
