@@ -1,8 +1,9 @@
 <template>
   <div
     :class="[
-      'relative flex w-full overflow-hidden',
+      'relative flex flex-col w-full overflow-hidden',
       ...Object.values(classes),
+      backgroundImage?.src ? 'text-white' : '',
     ]"
   >
     <div
@@ -25,8 +26,14 @@
       v-if="darken !== '0%'"
       :class="['absolute inset-0 bg-black', imageClasses.darken]"
     />
-    <div :class="['relative z-10 flex-1 py-6 px-4 md:py-10 md:px-8 xl:py-20 lg:max-w-2/3', alignment === 'center' ? 'text-center mx-auto items-center' : '']">
-      <slot />
+    <div :class="['relative z-10 flex flex-col gap-3 lg:gap-4 px-6 md:px-12 lg:px-16 max-w-4xl', alignment === 'top-left' ? 'pt-8 md:pt-12 pb-3' : alignment === 'bottom-left' ? 'pt-3 pb-6 md:pb-8' : 'py-3 md:py-4', alignment === 'center' ? 'items-center text-center mx-auto' : 'items-start']">
+      <component :is="`h${level}`" v-if="heading" class="m-0 text-4xl md:text-5xl lg:text-6xl font-bold max-w-3xl">
+        {{ heading }}
+      </component>
+      <p v-if="text" class="m-0 text-xl font-normal max-w-2xl">{{ text }}</p>
+      <div v-if="$slots.actions" :class="['flex flex-col gap-4 sm:flex-row', alignment === 'center' ? 'justify-center' : '']">
+        <slot name="actions" />
+      </div>
     </div>
   </div>
 </template>
@@ -34,14 +41,29 @@
 <script setup lang="ts">
 const props = withDefaults(defineProps<{
   /**
+   * Heading text
+   * @example Page title goes here
+   */
+  heading?: string
+  /**
+   * Heading level
+   * @example 2
+   */
+  level?: 1 | 2 | 3 | 4
+  /**
+   * Description text
+   * @example A short introduction or tagline for this page.
+   */
+  text?: string
+  /**
    * Hero height
-   * @example full
+   * @example large
    * @enumLabels {"full": "Full screen", "large": "Large", "ribbon": "Ribbon"}
    */
   height?: 'full' | 'large' | 'ribbon'
   /**
    * Content alignment
-   * @example center-left
+   * @example center
    * @enumLabels {"top-left": "Top left", "center-left": "Center left", "bottom-left": "Bottom left", "center": "Center"}
    */
   alignment?: 'top-left' | 'center-left' | 'bottom-left' | 'center'
@@ -52,6 +74,7 @@ const props = withDefaults(defineProps<{
   background?: 'primary' | 'secondary' | 'accent' | 'muted'
   /**
    * Background image
+   * @example src=https://placehold.co/1920x1080/333/333 alt="Hero background" width=1920 height=1080
    */
   backgroundImage?: CanvasImage
   /**
@@ -67,30 +90,31 @@ const props = withDefaults(defineProps<{
    */
   darken?: '0%' | '20%' | '40%' | '60%' | '75%'
 }>(), {
-  height: 'full',
-  alignment: 'center-left',
+  level: 2,
+  height: 'large',
+  alignment: 'center',
   imagePosition: 'center',
-  darken: '0%',
+  darken: '60%',
 })
 
 defineSlots<{
   /**
-   * Hero content
+   * Action buttons
    */
-  default?(): unknown
+  actions?(): unknown
 }>()
 
 const classes = computed(() => ({
   height: ({
-    full: 'min-h-dvh',
+    full: 'h-[100vh] h-dvh',
     large: 'min-h-[32rem]',
-    ribbon: 'min-h-48 md:min-h-64',
+    ribbon: 'min-h-64 md:min-h-80',
   })[props.height] || '',
   position: ({
-    'top-left': 'items-start justify-start',
-    'center-left': 'items-center justify-start',
-    'bottom-left': 'items-end justify-start',
-    'center': 'items-center justify-center',
+    'top-left': 'justify-start items-start',
+    'center-left': 'justify-center items-start',
+    'bottom-left': 'justify-end items-start',
+    'center': 'justify-center items-center',
   })[props.alignment] || '',
   bg: props.backgroundImage?.src ? '' : ({
     primary: 'bg-primary text-primary-foreground',

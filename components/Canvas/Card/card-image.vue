@@ -3,7 +3,7 @@
     :is="url ? 'a' : 'div'"
     :href="url || undefined"
     :class="[
-      'flex overflow-hidden no-underline text-inherit transition duration-300',
+      'flex h-full overflow-hidden no-underline text-inherit transition duration-300',
       url ? 'cursor-pointer hover:scale-105' : '',
       orientation === 'horizontal' ? 'flex-row' : 'flex-col',
       cardStyle === 'outlined' ? 'border border-border' : '',
@@ -20,7 +20,7 @@
         loading="lazy"
       >
     </div>
-    <div :class="['flex flex-col gap-2', cardStyle === 'outlined' ? 'p-4 lg:p-6' : 'py-4 lg:py-6']">
+    <div :class="['flex flex-col flex-grow gap-2', cardStyle === 'outlined' ? 'p-4 lg:p-6' : 'py-4 lg:py-6']">
       <component :is="`h${level}`" v-if="heading" class="m-0 text-lg font-semibold">
         {{ heading }}
       </component>

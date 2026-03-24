@@ -219,12 +219,15 @@ describe('Hero Components', () => {
   it('hero-billboard renders', async () => {
     const wrapper = await mountSuspended(HeroBillboard, {
       props: {
+        heading: 'Welcome',
+        text: 'A hero description.',
+        level: 1,
         height: 'large',
         alignment: 'center-left',
         backgroundImage: { src: 'https://example.com/hero.jpg', alt: 'Hero', width: 1920, height: 1080 },
         darken: '40%',
       },
-      slots: { default: '<h1>Welcome</h1>' },
+      slots: { actions: '<button>Go</button>' },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
