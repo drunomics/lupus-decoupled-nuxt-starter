@@ -22,14 +22,14 @@
     "@nuxt/test-utils": "^4.0.0",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.8.7",
-    "nuxt": "^4.3.1",
+    "nuxt": "^4.4.2",
     "typescript": "^5.5.4",
     "vitest": "^4.1.1"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "nuxt-component-preview": "^1.0.0-beta.8",
+    "nuxt-component-preview": "^1.0.0-beta.10",
     "nuxtjs-drupal-ce": "^2.6.0"
   }
 }

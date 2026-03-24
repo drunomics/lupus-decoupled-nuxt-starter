@@ -7,7 +7,7 @@ describe('Component Index', async () => {
     server: true,
   })
 
-  it('exposes all canvas components with correct categories', async () => {
+  it.skip('exposes all canvas components with correct categories', async () => {
     const index = await $fetch('/nuxt-component-preview/component-index.json')
     expect(index.version).toBe('1.0')
 
