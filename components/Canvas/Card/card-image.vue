@@ -30,6 +30,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description A card with image, heading, and description in vertical or horizontal layout.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Card heading
@@ -70,11 +73,11 @@ const props = withDefaults(defineProps<{
    */
   cardStyle?: 'outlined' | 'flat'
   /**
-   * Corner radius
-   * @example md
-   * @enumLabels {"none": "None", "sm": "Small", "md": "Medium", "lg": "Large"}
+   * Rounded corners
+
+
    */
-  radius?: 'none' | 'sm' | 'md' | 'lg'
+  rounded?: boolean
   /**
    * Background color
    * @example default
@@ -85,7 +88,7 @@ const props = withDefaults(defineProps<{
   level: 3,
   orientation: 'vertical',
   cardStyle: 'outlined',
-  radius: 'md',
+  rounded: true,
 })
 
 const classes = computed(() => ({
@@ -96,11 +99,6 @@ const classes = computed(() => ({
     accent: 'bg-accent text-accent-foreground',
     muted: 'bg-muted text-foreground',
   })[props.background || 'default'] || '',
-  radius: ({
-    none: '',
-    sm: 'rounded-sm',
-    md: 'rounded-md',
-    lg: 'rounded-lg',
-  })[props.radius] || '',
+  radius: props.rounded ? 'rounded-lg' : '',
 }))
 </script>

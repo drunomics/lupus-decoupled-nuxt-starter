@@ -39,6 +39,11 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * Hero CTA
+ *
+ * @description A call to action section with heading, text, and action buttons.
+ */
 const props = withDefaults(defineProps<{
   /**
    * CTA heading

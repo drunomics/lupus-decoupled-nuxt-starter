@@ -13,6 +13,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description Three-column layout with configurable width ratios.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Column layout

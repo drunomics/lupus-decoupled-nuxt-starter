@@ -16,6 +16,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description A button or link with variant styles and optional icon.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Button text

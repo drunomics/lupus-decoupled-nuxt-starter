@@ -30,6 +30,13 @@
   --color-inverted-foreground: oklch(0.99 0 0);
   --color-border: oklch(0.88 0.014 175);
   --color-ring: oklch(0.60 0.118 175);
+
+  /* Border radius — components use rounded-lg by default.
+   * Override --radius-lg to change the global rounding:
+   *   --radius-lg: 1rem;    (more rounded)
+   *   --radius-lg: 0.25rem; (subtle)
+   *   --radius-lg: 0;       (sharp corners)
+   */
 }
 
 /* Dark mode color overrides */

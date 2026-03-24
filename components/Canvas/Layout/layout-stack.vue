@@ -17,6 +17,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description Flexible container for arranging items vertically or horizontally.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Stack direction
@@ -48,8 +51,8 @@ const props = withDefaults(defineProps<{
   wrap?: boolean
   /**
    * Inner padding
-   * @example none
-   * @enumLabels {"none": "None", "sm": "Small", "md": "Medium", "lg": "Large"}
+
+
    */
   padding?: 'none' | 'sm' | 'md' | 'lg'
   /**
@@ -59,11 +62,11 @@ const props = withDefaults(defineProps<{
    */
   background?: 'default' | 'primary' | 'secondary' | 'accent' | 'muted'
   /**
-   * Corner radius
-   * @example none
-   * @enumLabels {"none": "None", "sm": "Small", "md": "Medium", "lg": "Large"}
+   * Rounded corners
+
+
    */
-  radius?: 'none' | 'sm' | 'md' | 'lg'
+  rounded?: boolean
 }>(), {
   direction: 'column',
   gap: 'md',
@@ -71,7 +74,7 @@ const props = withDefaults(defineProps<{
   justify: 'start',
   wrap: false,
   padding: 'none',
-  radius: 'none',
+  rounded: false,
 })
 
 defineSlots<{
@@ -114,11 +117,6 @@ const classes = computed(() => ({
     accent: 'bg-accent text-accent-foreground',
     muted: 'bg-muted text-muted-foreground',
   })[props.background || 'default'] || '',
-  radius: ({
-    none: '',
-    sm: 'rounded-sm',
-    md: 'rounded-md',
-    lg: 'rounded-lg',
-  })[props.radius] || '',
+  radius: props.rounded ? 'rounded-lg' : '',
 }))
 </script>

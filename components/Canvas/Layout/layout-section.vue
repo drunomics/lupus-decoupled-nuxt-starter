@@ -34,6 +34,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description A page section with background, padding, and content width options.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Background color

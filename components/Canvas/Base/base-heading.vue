@@ -12,6 +12,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description A heading element with configurable level, size, color, and alignment.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Heading text

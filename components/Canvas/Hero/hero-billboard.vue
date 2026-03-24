@@ -39,6 +39,11 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * Hero Billboard
+ *
+ * @description A full-width hero with background image, heading, and call to action.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Heading text

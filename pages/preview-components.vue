@@ -28,8 +28,8 @@
         </template>
         <template #col-2>
           <LayoutStack direction="column" gap="lg">
-            <CardIcon icon="ph:puzzle-piece" heading="Modular" text="<p>Nest layout components freely — a section containing a grid of cards, each with its own stack inside.</p>" radius="lg" background="muted" />
-            <CardIcon icon="ph:paint-brush" heading="Themeable" text="<p>All colors come from CSS variables. Swap the palette in theme.css and every component updates.</p>" radius="lg" background="muted" />
+            <CardIcon icon="ph:puzzle-piece" heading="Modular" text="<p>Nest layout components freely — a section containing a grid of cards, each with its own stack inside.</p>" rounded background="muted" />
+            <CardIcon icon="ph:paint-brush" heading="Themeable" text="<p>All colors come from CSS variables. Swap the palette in theme.css and every component updates.</p>" rounded background="muted" />
           </LayoutStack>
         </template>
       </LayoutTwoColumns>
@@ -138,9 +138,9 @@
         <LayoutStack direction="column" gap="md">
           <BaseHeading text="Image aspect ratios" :level="2" />
           <LayoutGrid columns="4" gap="md">
-            <BaseImage :media="{ src: 'https://placehold.co/800x600/6b9b93/fff?text=4:3', alt: 'Landscape', width: 800, height: 600 }" aspect-ratio="4:3" radius="sm" caption="4:3 ratio" />
-            <BaseImage :media="{ src: 'https://placehold.co/800x600/4a7c73/fff?text=16:9', alt: 'Widescreen', width: 800, height: 600 }" aspect-ratio="16:9" radius="md" caption="16:9 ratio" />
-            <BaseImage :media="{ src: 'https://placehold.co/800x600/6b9b93/fff?text=1:1', alt: 'Square', width: 800, height: 600 }" aspect-ratio="1:1" radius="lg" caption="1:1 ratio" />
+            <BaseImage :media="{ src: 'https://placehold.co/800x600/6b9b93/fff?text=4:3', alt: 'Landscape', width: 800, height: 600 }" aspect-ratio="4:3" rounded caption="4:3 ratio" />
+            <BaseImage :media="{ src: 'https://placehold.co/800x600/4a7c73/fff?text=16:9', alt: 'Widescreen', width: 800, height: 600 }" aspect-ratio="16:9" rounded caption="16:9 ratio" />
+            <BaseImage :media="{ src: 'https://placehold.co/800x600/6b9b93/fff?text=1:1', alt: 'Square', width: 800, height: 600 }" aspect-ratio="1:1" rounded caption="1:1 ratio" />
             <BaseImage :media="{ src: 'https://placehold.co/800x600/4a7c73/fff?text=Original', alt: 'Original', width: 800, height: 600 }" caption="Original ratio" />
           </LayoutGrid>
         </LayoutStack>

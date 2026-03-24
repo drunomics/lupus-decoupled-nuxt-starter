@@ -56,7 +56,7 @@ exports[`Base Components > base-icon renders 1`] = `"<span class="inline-block b
 
 exports[`Base Components > base-image renders with media 1`] = `
 "<figure class="m-0">
-  <div class="block rounded-md overflow-hidden"><img src="https://example.com/img.jpg" alt="Test" width="800" height="600" class="block w-full aspect-video object-cover" loading="lazy"></div>
+  <div class="block rounded-lg overflow-hidden"><img src="https://example.com/img.jpg" alt="Test" width="800" height="600" class="block w-full aspect-video object-cover" loading="lazy"></div>
   <figcaption class="mt-2 text-sm text-muted-foreground">A test image</figcaption>
 </figure>"
 `;
@@ -80,7 +80,7 @@ exports[`Card Components > card-icon renders 1`] = `
 `;
 
 exports[`Card Components > card-image renders horizontal 1`] = `
-"<div class="flex h-full overflow-hidden no-underline text-inherit transition duration-300 flex-row bg-accent text-accent-foreground rounded-md">
+"<div class="flex h-full overflow-hidden no-underline text-inherit transition duration-300 flex-row bg-accent text-accent-foreground rounded-lg">
   <div class="w-2/5 shrink-0"><img src="https://example.com/img.jpg" alt="Thumb" width="600" height="400" class="block w-full object-cover h-full" loading="lazy"></div>
   <div class="flex flex-col flex-grow gap-2 py-4 lg:py-6">
     <h3 class="m-0 text-lg font-semibold">Article</h3>
@@ -90,7 +90,7 @@ exports[`Card Components > card-image renders horizontal 1`] = `
 `;
 
 exports[`Card Components > card-image renders vertical 1`] = `
-"<div class="flex h-full overflow-hidden no-underline text-inherit transition duration-300 flex-col border border-border bg-background rounded-md">
+"<div class="flex h-full overflow-hidden no-underline text-inherit transition duration-300 flex-col border border-border bg-background rounded-lg">
   <div class=""><img src="https://example.com/img.jpg" alt="Thumb" width="600" height="400" class="block w-full object-cover h-auto" loading="lazy"></div>
   <div class="flex flex-col flex-grow gap-2 p-4 lg:p-6">
     <h3 class="m-0 text-lg font-semibold">Article</h3>
@@ -152,7 +152,7 @@ exports[`Layout Components > layout-section renders with defaults 1`] = `
 `;
 
 exports[`Layout Components > layout-stack renders horizontal with background 1`] = `
-"<div class="flex flex-row gap-6 items-start justify-start p-4 bg-primary text-primary-foreground rounded-md">
+"<div class="flex flex-row gap-6 items-start justify-start p-4 bg-primary text-primary-foreground rounded-lg">
   <div>A</div>
   <div>B</div>
 </div>"

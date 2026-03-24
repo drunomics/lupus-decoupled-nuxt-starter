@@ -7,6 +7,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description Rich text content with prose styling.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Rich text content

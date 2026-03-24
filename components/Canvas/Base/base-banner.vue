@@ -26,6 +26,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description A dismissible notification banner.
+ */
 
 const props = withDefaults(defineProps<{
   /**

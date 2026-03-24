@@ -19,6 +19,9 @@
 
 <script setup lang="ts">
 /**
+ * @description Displays an icon from the Iconify library.
+ */
+/**
  * Simple icon component using Iconify CDN with CSS mask.
  * The icon inherits the current text color automatically.
  *

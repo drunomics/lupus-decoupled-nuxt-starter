@@ -22,6 +22,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description An image with optional aspect ratio, caption, and link.
+ */
 
 const props = withDefaults(defineProps<{
   /**
@@ -36,11 +39,11 @@ const props = withDefaults(defineProps<{
    */
   aspectRatio?: 'original' | '2:1' | '16:9' | '3:2' | '4:3' | '1:1'
   /**
-   * Corner radius
-   * @example none
-   * @enumLabels {"none": "None", "sm": "Small", "md": "Medium", "lg": "Large"}
+   * Rounded corners
+
+
    */
-  radius?: 'none' | 'sm' | 'md' | 'lg'
+  rounded?: boolean
   /**
    * Image caption
    * @example Image description
@@ -53,7 +56,7 @@ const props = withDefaults(defineProps<{
   url?: string
 }>(), {
   aspectRatio: 'original',
-  radius: 'none',
+  rounded: false,
 })
 
 const classes = computed(() => ({
@@ -65,11 +68,6 @@ const classes = computed(() => ({
     '4:3': 'aspect-[4/3] object-cover',
     '1:1': 'aspect-square object-cover',
   })[props.aspectRatio] || '',
-  radius: ({
-    none: '',
-    sm: 'rounded-sm',
-    md: 'rounded-md',
-    lg: 'rounded-lg',
-  })[props.radius] || '',
+  radius: props.rounded ? 'rounded-lg' : '',
 }))
 </script>

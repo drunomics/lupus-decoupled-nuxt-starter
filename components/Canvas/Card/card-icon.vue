@@ -26,6 +26,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description A card with icon, heading, and description text.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Icon name (Iconify format)
@@ -36,7 +39,7 @@ const props = withDefaults(defineProps<{
   icon: string
   /**
    * Icon size
-   * @example md
+
    * @enumLabels {"sm": "Small", "md": "Medium", "lg": "Large"}
    */
   iconSize?: 'sm' | 'md' | 'lg'
@@ -71,15 +74,15 @@ const props = withDefaults(defineProps<{
    */
   background?: 'default' | 'transparent' | 'primary' | 'accent' | 'muted'
   /**
-   * Corner radius
-   * @example md
-   * @enumLabels {"none": "None", "sm": "Small", "md": "Medium", "lg": "Large"}
+   * Rounded corners
+
+
    */
-  radius?: 'none' | 'sm' | 'md' | 'lg'
+  rounded?: boolean
 }>(), {
   iconSize: 'md',
   align: 'start',
-  radius: 'md',
+  rounded: true,
 })
 
 const iconSizePx = computed(() => ({
@@ -100,11 +103,6 @@ const classes = computed(() => ({
     accent: 'bg-accent text-accent-foreground',
     muted: 'bg-muted text-foreground',
   })[props.background || 'transparent'] || '',
-  radius: ({
-    none: '',
-    sm: 'rounded-sm',
-    md: 'rounded-md',
-    lg: 'rounded-lg',
-  })[props.radius] || '',
+  radius: props.rounded ? 'rounded-lg' : '',
 }))
 </script>

@@ -10,6 +10,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description Two-column layout with configurable width ratios.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Column layout

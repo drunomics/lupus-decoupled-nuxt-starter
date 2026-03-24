@@ -80,7 +80,7 @@ describe('Layout Components', () => {
 
   it('layout-stack renders horizontal with background', async () => {
     const wrapper = await mountSuspended(LayoutStack, {
-      props: { direction: 'row', gap: 'lg', background: 'primary', radius: 'md', padding: 'md' },
+      props: { direction: 'row', gap: 'lg', background: 'primary', rounded: true, padding: 'md' },
       slots: { default: '<div>A</div><div>B</div>' },
     })
     expect(wrapper.html()).toMatchSnapshot()
@@ -158,7 +158,7 @@ describe('Base Components', () => {
       props: {
         media: { src: 'https://example.com/img.jpg', alt: 'Test', width: 800, height: 600 },
         aspectRatio: '16:9',
-        radius: 'md',
+        rounded: true,
         caption: 'A test image',
       },
     })
@@ -176,7 +176,7 @@ describe('Base Components', () => {
 describe('Card Components', () => {
   it('card-icon renders', async () => {
     const wrapper = await mountSuspended(CardIcon, {
-      props: { icon: 'ph:rocket', heading: 'Fast', text: '<p>Very fast.</p>', align: 'center', background: 'muted', radius: 'lg' },
+      props: { icon: 'ph:rocket', heading: 'Fast', text: '<p>Very fast.</p>', align: 'center', background: 'muted', rounded: true },
     })
     expect(wrapper.html()).toMatchSnapshot()
   })

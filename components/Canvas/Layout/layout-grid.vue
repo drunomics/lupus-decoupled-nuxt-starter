@@ -5,6 +5,9 @@
 </template>
 
 <script setup lang="ts">
+/**
+ * @description Equal-column grid for repeating items like cards.
+ */
 const props = withDefaults(defineProps<{
   /**
    * Number of columns
