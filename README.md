@@ -61,6 +61,28 @@ npm run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
+### Testing
+
+```bash
+npm test
+```
+
+Tests cover:
+- **HTML snapshots** — renders each Canvas component with various prop combinations and snapshots the output. Catches regressions in markup and Tailwind class mappings.
+- **Component index** — verifies all Canvas components are registered and exposed with correct categories for Drupal Canvas.
+
+Update snapshots after intentional changes:
+
+```bash
+npx vitest run --update
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
 ## License
 
 [MIT](./LICENSE)
