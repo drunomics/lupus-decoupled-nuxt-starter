@@ -2,7 +2,7 @@
   <component
     :is="url ? 'a' : `h${level}`"
     :href="url || undefined"
-    :class="['font-bold', ...Object.values(classes)]"
+    :class="['font-bold py-1', ...Object.values(classes)]"
   >
     <component :is="`h${level}`" v-if="url">
       {{ text }}

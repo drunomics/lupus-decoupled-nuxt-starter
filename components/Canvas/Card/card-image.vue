@@ -65,7 +65,7 @@ const props = withDefaults(defineProps<{
    * @example vertical
    * @enumLabels {"vertical": "Vertical", "horizontal": "Horizontal"}
    */
-  orientation?: 'vertical' | 'horizontal'
+  orientation: 'vertical' | 'horizontal'
   /**
    * Card style
    * @example outlined

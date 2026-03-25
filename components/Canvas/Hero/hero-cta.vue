@@ -70,9 +70,9 @@ const props = withDefaults(defineProps<{
   /**
    * Background color
    * @example primary
-   * @enumLabels {"primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted"}
+   * @enumLabels {"default": "Default", "primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted"}
    */
-  background?: 'primary' | 'secondary' | 'accent' | 'muted'
+  background?: 'default' | 'primary' | 'secondary' | 'accent' | 'muted'
   /**
    * Background image
    */
@@ -103,7 +103,7 @@ const classes = computed(() => ({
     end: 'text-end',
   })[props.align] || '',
   bg: ({
-    default: '',
+    default: 'bg-background text-foreground',
     primary: 'bg-primary text-primary-foreground',
     secondary: 'bg-secondary text-secondary-foreground',
     accent: 'bg-accent text-accent-foreground',

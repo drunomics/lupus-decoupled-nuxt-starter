@@ -74,9 +74,9 @@ const props = withDefaults(defineProps<{
   alignment?: 'top-left' | 'center-left' | 'bottom-left' | 'center'
   /**
    * Background color (solid background or image tint)
-   * @enumLabels {"primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted"}
+   * @enumLabels {"default": "Default", "primary": "Primary", "secondary": "Secondary", "accent": "Accent", "muted": "Muted"}
    */
-  background?: 'primary' | 'secondary' | 'accent' | 'muted'
+  background?: 'default' | 'primary' | 'secondary' | 'accent' | 'muted'
   /**
    * Background image
    * @example src=https://placehold.co/1920x1080/333/333 alt="Hero background" width=1920 height=1080
@@ -122,6 +122,7 @@ const classes = computed(() => ({
     'center': 'justify-center items-center',
   })[props.alignment] || '',
   bg: props.backgroundImage?.src ? '' : ({
+    default: 'bg-background text-foreground',
     primary: 'bg-primary text-primary-foreground',
     secondary: 'bg-secondary text-secondary-foreground',
     accent: 'bg-accent text-accent-foreground',
