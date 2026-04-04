@@ -3,15 +3,26 @@
 A starter setup with skeleton components for [Lupus Decoupled Drupal](https://www.drupal.org/project/lupus_decoupled).
 Built upon the [nuxtjs-drupal-ce](https://github.com/drunomics/nuxtjs-drupal-ce) Nuxt module.
 
+Full documentation is available at [lupus-decoupled.org](https://lupus-decoupled.org).
+
 ## Overview
 
 This is a Nuxt project with [nuxtjs-drupal-ce](https://github.com/drunomics/nuxtjs-drupal-ce) installed and configured, ready to connect to a Lupus Decoupled Drupal backend.
+
+### Canvas Components
+
+The components under `components/Canvas/` are example components demonstrating how to build for [Drupal Canvas](https://www.drupal.org/project/canvas), a Drupal module that lets editors compose pages from Vue components. They cover common patterns (heroes, cards, layout primitives, rich text) and serve as a starting point to be extended or replaced with your own components.
+
+### Related Projects
+
+- **[lupus_decoupled_starter](https://www.drupal.org/project/lupus_decoupled_starter)**: a Drupal CMS Site Template that uses this starter as its frontend
+- **[lupus_csr](https://www.drupal.org/project/lupus_csr)**: a Drupal theme that bundles a built version of this starter to serve it as a Drupal-hosted CSR frontend
 
 ## Try it
 
 ### GitHub Codespaces
 
-The easiest way to try it is via [GitHub Codespaces](https://codespaces.new/drunomics/lupus-decoupled-project?quickstart=1) — a free, browser-based development environment with everything preconfigured.
+The easiest way to try it is via [GitHub Codespaces](https://codespaces.new/drunomics/lupus-decoupled-project?quickstart=1), a free, browser-based development environment with everything preconfigured.
 
 See the [Play Online](https://lupus-decoupled.org/get-started/play-online) guide for details and alternative setups (shadcn/ui, Next.js).
 
@@ -68,8 +79,8 @@ npm test
 ```
 
 Tests cover:
-- **HTML snapshots** — renders each Canvas component with various prop combinations and snapshots the output. Catches regressions in markup and Tailwind class mappings.
-- **Component index** — verifies all Canvas components are registered and exposed with correct categories for Drupal Canvas.
+- **HTML snapshots**: renders each Canvas component with various prop combinations and snapshots the output. Catches regressions in markup and Tailwind class mappings.
+- **Component index**: verifies all Canvas components are registered and exposed with correct categories for Drupal Canvas.
 
 Update snapshots after intentional changes:
 
