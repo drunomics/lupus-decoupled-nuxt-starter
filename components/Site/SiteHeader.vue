@@ -2,7 +2,7 @@
   <header class="site-header">
     <div class="header-inner">
       <nuxt-link to="/" class="header-brand">
-        <img src="/logo.svg" alt="Logo" class="header-logo" />
+        <img :src="logoUrl" alt="Logo" class="header-logo" />
         <span class="header-site-name">Nuxt Starter</span>
       </nuxt-link>
 
@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import logoUrl from '~/assets/logo.svg'
 const menuOpen = ref(false)
 const router = useRouter()
 router.afterEach(() => { menuOpen.value = false })
