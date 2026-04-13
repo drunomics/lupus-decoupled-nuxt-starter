@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   // e.g. Canvas/Layout/layout-section.vue -> <layout-section>
 
   drupalCe: {
-    drupalBaseUrl: process.env.NUXT_PUBLIC_DRUPAL_CE_DRUPAL_BASE_URL || 'https://lupus-decoupled.ddev.site',
+    drupalBaseUrl: process.env.NUXT_PUBLIC_DRUPAL_CE_DRUPAL_BASE_URL || 'http://lupus-decoupled.ddev.site',
   },
 
   components: [
