@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "nuxt-component-preview": "^1.0.0-rc.2",
-    "nuxtjs-drupal-ce": "^2.6.0"
+    "nuxtjs-drupal-ce": "^2.6.1"
   }
 }
