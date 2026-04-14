@@ -38,7 +38,10 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ['.ddev.site', '.localdev.space'],
+    },
   },
 
-  compatibilityDate: '2026-03-24',
+  compatibilityDate: '2026-04-14',
 })
