@@ -2,7 +2,7 @@
   "private": true,
   "license": "MIT",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=20.20.2"
   },
   "scripts": {
     "init-project-files": "nuxt-drupal-ce-init",
