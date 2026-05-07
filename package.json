@@ -9,6 +9,8 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
+    "bundle-assets": "node scripts/bundle-assets.mjs",
+    "deploy": "npm run generate && npm run bundle-assets && surge .output/public lupus-nuxt-starter-demo.surge.sh",
     "preview": "nuxt preview",
     "start": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare && npm run init-project-files",

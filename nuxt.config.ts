@@ -32,7 +32,8 @@ export default defineNuxtConfig({
     // Disable link crawling for nuxt generate — useful when generating
     // a SPA for shipping with Lupus CSR.
     prerender: {
-      crawlLinks: false,
+      crawlLinks: true,
+      ignore: [(path) => path.startsWith('/admin/')],
     },
   },
 
