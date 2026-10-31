@@ -22,7 +22,7 @@
     "@nuxt/test-utils": "^4.0.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "@vue/test-utils": "^2.4.6",
+    "@vue/test-utils": "^2.5.1",
     "eslint": "^10.2.0",
     "happy-dom": "^20.8.7",
     "nuxt": "^4.4.2",
