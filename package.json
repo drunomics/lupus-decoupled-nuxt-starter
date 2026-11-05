@@ -18,7 +18,7 @@
     "test:watch": "vitest watch"
   },
   "devDependencies": {
-    "@nuxt/eslint": "^1.15.2",
+    "@nuxt/eslint": "^1.17.0",
     "@nuxt/test-utils": "^4.0.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
